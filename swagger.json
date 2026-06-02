@@ -1,0 +1,123 @@
+{
+"openapi": "3.0.0",
+"info": {
+"title": "API de Usuarios",
+"version": "1.0.0",
+"description": "API REST básica para gestión de usuarios"
+},
+"servers": [
+  {
+    "url": "https://api-rest-22100173.onrender.com"
+  }
+],
+"paths": {
+"/usuarios": {
+"get": {
+"summary": "Obtener todos los usuarios",
+"responses": {
+"200": {
+"description": "Lista de usuarios"
+}
+}
+},
+"post": {
+"summary": "Crear un usuario",
+"requestBody": {
+"required": true,
+"content": {
+"application/json": {
+"schema": {
+"$ref": "#/components/schemas/UsuarioInput"
+}
+}
+}
+},
+"responses": {
+"201": {
+"description": "Usuario creado"
+}
+}
+}
+},
+"/usuarios/{id}": {
+"get": {
+"summary": "Obtener usuario por ID",
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"required": true,
+"schema": {
+"type": "integer"
+}
+}
+],
+"responses": {
+"200": {
+"description": "Usuario encontrado"
+},
+"404": {
+"description": "Usuario no encontrado"
+}
+}
+},
+"put": {
+"summary": "Actualizar usuario",
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"required": true,
+"schema": {
+"type": "integer"
+}
+}
+],
+"responses": {
+"200": {
+"description": "Usuario actualizado"
+}
+}
+},
+"delete": {
+"summary": "Eliminar usuario",
+"parameters": [
+{
+"name": "id",
+"in": "path",
+"required": true,
+"schema": {
+"type": "integer"
+}
+}
+],
+"responses": {
+"200": {
+"description": "Usuario eliminado"
+}
+}
+}
+}
+},
+"components": {
+"schemas": {
+"UsuarioInput": {
+"type": "object",
+"required": [
+"nombre",
+"correo"
+],
+"properties": {
+"nombre": {
+"type": "string",
+"example": "Juan Pérez"
+},
+"correo": {
+"type": "string",
+"example": "juan@gmail.com"
+}
+}
+}
+}
+}
+}
