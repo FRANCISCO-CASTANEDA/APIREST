@@ -104,7 +104,7 @@ console.log(`Servidor ejecutándose en puerto ${PORT}`);
 });
 app.get('/', (req, res) => {
   res.json({
-    mensaje: 'API REST funcionando 🚀',
+    mensaje: 'API REST funcionando',
     rutas: [
       '/usuarios',
       '/api-docs'
