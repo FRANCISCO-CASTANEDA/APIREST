@@ -102,3 +102,12 @@ mensaje: 'Usuario eliminado correctamente'
 app.listen(PORT, () => {
 console.log(`Servidor ejecutándose en puerto ${PORT}`);
 });
+app.get('/', (req, res) => {
+  res.json({
+    mensaje: 'API REST funcionando 🚀',
+    rutas: [
+      '/usuarios',
+      '/api-docs'
+    ]
+  });
+});
